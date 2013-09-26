@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="PWM-duty-cycle-diagram.svg"
+   inkscape:version="0.48.1 "
+   version="1.1"
+   id="svg2"
+   height="315"
+   width="540"
+   inkscape:export-filename="C:\Users\Devan\Dropbox\10 CalSol Impulse - Electronics\Training Documents\EE2\images\PWM-duty-cycle-diagram.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="285.8529"
+     inkscape:cy="143.12147"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="in"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-nodes="true"
+     inkscape:snap-bbox="false"
+     inkscape:bbox-nodes="true"
+     inkscape:object-nodes="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       units="in"
+       spacingx="0.1in"
+       spacingy="0.1in" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-737.35975)">
+    <path
+       id="path2987-0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 351.5,827.85975 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 m -189,0 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 m -189,0 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 m -189,0 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 m -180,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 m 351,0 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0 0,-45 9,0 0,45 9,0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+    <g
+       id="g3839"
+       transform="translate(-8.5,-44.5)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3051-9"
+         d="m 99,784.35975 0,270.00015"
+         style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3051"
+         d="m 99,780.35975 0,321.50005"
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4, 4;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3839"
+       id="use3843"
+       transform="translate(90,0)"
+       width="540"
+       height="270" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3839"
+       id="use3843-1"
+       transform="translate(180,0)"
+       width="540"
+       height="270" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3839"
+       id="use3843-14"
+       transform="translate(270,0)"
+       width="540"
+       height="270" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3839"
+       id="use3843-3"
+       transform="translate(360,0)"
+       width="540"
+       height="270" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="2.5"
+       y="773.85974"
+       id="text3879"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3881"
+         x="2.5"
+         y="773.85974">Clock Signal</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="2.5"
+       y="863.85974"
+       id="text3883"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3885"
+         x="2.5"
+         y="863.85974">Output Voltage</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="2"
+       y="998.35968"
+       id="text3887"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="2"
+         y="998.35968"
+         id="tspan3891">Average Power</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0.5,872.85975 36,0 0,45 54,0 0,-45 90,0 72,0 0,45 18,0 0,-45 18,0 0,45 72,0 90,0 0,-45 36,0 0,45 54,0"
+       id="path3897"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 45,1034.3598 90,-27 90,9 90,27 90,9 90,-18"
+       id="path3899"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="2"
+       y="935.35974"
+       id="text3905"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3907"
+         x="2"
+         y="935.35974">Duty Cycle</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="63"
+       y="935.35974"
+       id="text3909"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3911"
+         x="63"
+         y="935.35974">40%</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="144"
+       y="935.35974"
+       id="text3913"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3915"
+         x="144"
+         y="935.35974">100%</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="243"
+       y="935.35974"
+       id="text3917"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3919"
+         x="243"
+         y="935.35974">80%</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="333"
+       y="935.35974"
+       id="text3921"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3923"
+         x="333"
+         y="935.35974">20%</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="432"
+       y="935.35974"
+       id="text3925"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3927"
+         x="432"
+         y="935.35974">0%</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="513"
+       y="935.35974"
+       id="text3929"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3931"
+         x="513"
+         y="935.35974">40%</tspan></text>
+  </g>
+</svg>
