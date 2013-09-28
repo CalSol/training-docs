@@ -4,4 +4,3 @@ Training documents, including theory overview, lab manuals, and associated graph
 Only the source files should be committed to the repository, generated files (like .png or .pdf exported from design sources) should not be added.
 
 Most of the files in this repository are licensed under Creative Commons 3.0 Attribution - ShareAlike ( https://creativecommons.org/licenses/by-sa/3.0/us/ ). This includes image sources and documents.
-EXCEPTIONS: EE1 and EE2 documents (yet to be coordinated among the multiple authors), and some images in the documents where the sources are not in the repository (pulled from online sources, which we do not own the copyrights over).
