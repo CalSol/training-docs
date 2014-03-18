@@ -1,0 +1,3 @@
+[submodule "unoconv"]
+	path = unoconv
+	url = https://github.com/dagwieers/unoconv.git
