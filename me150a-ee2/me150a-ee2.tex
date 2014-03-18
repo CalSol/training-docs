@@ -735,7 +735,10 @@ Ask questions, or just sit back and chillax!
         \begin{itemize}
           \item Essentially a complete (but simple) computer on a chip
         \end{itemize}
-        \item Boards mailed in about a week
+        \item Allows control of an electrical physical system from software
+        \begin{itemize}
+          \item Usually easier to reason about than circuit components
+        \end{itemize}        
       \end{itemize}
     \end{column}
 
@@ -745,16 +748,121 @@ Ask questions, or just sit back and chillax!
   \end{columns}
 \end{frame}
 
-\subsection{SoC architecture}
-
 \subsection{IOs and peripherals}
+\begin{frame}{Overview}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      IOs and peripherals
+      \begin{itemize}
+        \item Are how microcontrollers interact with the world around them
+        \begin{itemize}
+          \item Pins assert and detect electrical signals, which can be controlled from within hardware
+        \end{itemize}
+        \item Digital peripherals
+        \begin{itemize}
+          \item with with digital quantities, generally 0 and 1 (represented as high and low voltages)
+        \end{itemize}
+        \item Analog peripherals
+        \begin{itemize}
+          \item work with continuous quantities, but are usually quantized
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: architecture block diagram
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Digital GPIO}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      GPIO: General Purpose Input/Output
+      \begin{itemize}
+        \item Can be configuired as a digital input or output
+        \item As an input:
+        \begin{itemize}
+          \item Can read the pin level
+          \item Some chips have optional integrated pull-ups/pull-downs
+          \item Example: read switch
+        \end{itemize}
+        \item As an output:
+        \begin{itemize}
+          \item Can assert a voltage (chip positive or negative supply)
+          \item Example: drive LED
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: GPIO switch and LED circuits
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Digital Communications}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Various digital signaling standards
+      \begin{itemize}
+        \item Parallel protocols:
+        \begin{itemize}
+          \item One line for each bit in word
+          \item (entire word shifted out at once)
+        \end{itemize}
+        \item Serial protocols:
+        \begin{itemize}
+          \item Bits in a word shifted out one after the other
+          \item (in a time-varying signal)
+        \end{itemize}
+        \item Example:
+        \begin{itemize}
+          \item UART (serial; two wires) often used for text console
+          \item SPI (serial, 3 wires + select), I2C (serial; 2 wires) often used for inter-chip communication
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: waveforms
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Analog Peripherals}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      ADC (Analog to Digital converter)
+      \begin{itemize}
+        \item Reads a voltage level on a pin, and quantizes it to a digital value
+        \begin{itemize}
+          \item Resolution specified in bits
+          \item Useful for sensing applications
+        \end{itemize}
+      \end{itemize}
+      \phantom{x}
+      DAC (Digital to Analog converter)
+      \begin{itemize}
+        \item Sets a voltage level on a pin
+        \begin{itemize}
+          \item Controlled from software
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: pot circuit example
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \section{Programming}
 \subsection{C-style languages}
 
-\subsection{Running time}
+\subsection{Constraints}
 
-\subsection{Memory}
+\subsection{Peripheral}
 
 \subsection{Event Detection}
 
