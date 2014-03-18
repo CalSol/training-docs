@@ -12,3 +12,6 @@ ehthumbs.db
 Thumbs.db
 ~*
 .~*
+
+# TeX stuff
+*.swp
