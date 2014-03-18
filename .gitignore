@@ -15,3 +15,9 @@ Thumbs.db
 
 # TeX stuff
 *.swp
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc

@@ -1,11 +1,13 @@
 UNOCONV = python unoconv/unoconv
 
-SRCS=$(wildcard images/*.odg)
-PNGS=$(SRCS:.odg=.png)
+IMG_SRCS=$(wildcard images/*.odg)
+IMG_PNGS=$(SRCS:.odg=.png)
 
-all: images
+all: images documents
 
 images: $(PNGS)
+
+documents: $(TEX_PDFS)
 
 %.png : %.odg
 	$(UNOCONV) -f png $<

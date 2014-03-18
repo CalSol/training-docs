@@ -1,4 +1,7 @@
 \documentclass{beamer}
+\usepackage{etoolbox}
+\usepackage{tcolorbox}
+
 \usetheme{Warsaw}
 
 \title{Advanced Electrical}
@@ -6,57 +9,763 @@
 \author[Ducky]{Ducky}
 \date{March 19, 2014}
 
-\begin{document}
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
 
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection,hideothersubsections]
+  \end{frame}
+}
+\setbeamertemplate{sidebar right}{}
+\setbeamertemplate{footline}{%
+\hfill\usebeamertemplate***{navigation symbols}
+\hspace{1cm}\insertframenumber{}/\inserttotalframenumber}
+
+\begin{document}
 % -------- -------- -------- -------- --------
 \begin{frame}[plain]
   \titlepage
 \end{frame}
 
-% -------- -------- -------- -------- --------
-\begin{frame}{A sample slidse}
+\section{Common Circuits Blocks}
+\begin{frame}{Introduction}
+  \begin{itemize}
+    \item Circuits are often made of modular sub-circuits, each providing some functionality
+    \item Often, circuit blocks exist that are stock solutions to certain problems
+    \begin{itemize}
+      \item Like switching regulators for voltage regulation
+      \item Or pull-up resistors for buttons
+    \end{itemize}
+    \item Using these prevents "reinventing the wheel" and makes circuits more readable, leveraging widespread familiarity
+    \begin{itemize}
+      \item Similar to patterns in software development
+      \item Or mechanisms in mechanical engineering
+    \end{itemize}
+  \end{itemize}
+  !!TODO:add circuit block pictures here
 \end{frame}
 
-% -------- -------- -------- -------- --------
-\begin{frame}{A sample slidse}
+\subsection{LED circuit}
+\begin{frame}{LED circuit}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
-      Here is the first column.  We put an a a a a itemized list in it.
+	  LEDs are diodes that illuminate when current flows through them
       \begin{itemize}
-        \item This is an item
-        \item This is another item
-        \item Yet another item
+        \item LEDs have maximum current ratings, so should not directly be connected to a voltage source
+        \item Indicator LEDs typically consume ~20mA and drop 1-3V
+        \item Use a resistor to limit current
+        \item High power LEDs can consume much more current, and require specialized drive circuitry
       \end{itemize}
     \end{column}
 
     \begin{column}{0.4\textwidth}
-%      \centerline{\includegraphics[width=0.7\textwidth]{image2.png}}
-      Here is the second column A a a a a .  We will put a picture in it.
+      !!TODO:LED circuit
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{A sample slide}
+\subsection{Pull-up / pull-down}
+\begin{frame}{Pull-up / pull-down networks}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+	  Pull-up / pull-down resistors connect a large resistor from a source (voltage supply or ground) to a line
+      \begin{itemize}
+        \item The resistor weakly pulls the line to the other side
+        \item This provides a "default value" for the line, in the absence of other connections
+        \item Pull-ups weakly connect a positive supply, while pull-downs weakly connect ground
+      \end{itemize}
+    \end{column}
 
-A displayed formula:
+    \begin{column}{0.4\textwidth}
+      !!TODO:Pull-up circuit
+      !!TODO:Pull-down circuit
+    \end{column}
+  \end{columns}
+\end{frame}
 
-\[
-  \int_{-\infty}^\infty e^{-x^2} \, dx = \sqrt{\pi}
-\]
+\begin{frame}{Floating lines and switches}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+	  Uses
+      \begin{itemize}
+        \item Prevent floating lines
+        \begin{itemize}
+          \item Disconnected lines "float" to indeterminiate voltages based on external noise - bad!
+        \end{itemize}
+        \item In switch circuits
+        \begin{itemize}
+          \item Where the switch "overpowers" the resistor when closed
+          \item Can think of as a (lopsided) voltage divider when closed
+          \item Convention: switches connected to ground, but weakly pulled up
+        \end{itemize}
+        \item Voltage shifting
+        \begin{itemize}
+          \item Replace switch with a transistor
+        \end{itemize}
+      \end{itemize}
+    \end{column}
 
-An itemized list:
+    \begin{column}{0.4\textwidth}
+      \only<1>{
+      !!TODO:Pull-up switch (open)
+      !!TODO:Pull-up switch (closed)
+      }
+      \only<2>{
+      !!TODO:Voltage translation (on)
+      !!TODO:Voltage translation (off)
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
 
-\begin{itemize}
-  \item itemized item 1
-  \item itemized item 2
-  \item itemized item 3
-\end{itemize}
+\subsection{Op-amps}
+\begin{frame}{Opamps}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \only<1>{
+      \begin{itemize}
+        \item Op-amps ("operational amplifiers") are amplifiers with very high gain
+        \begin{itemize}
+          \item ... which in itself, isn't very useful
+        \end{itemize}
+        \item Common connected in circuits with negative feedback for various applications:
+        \begin{itemize}
+          \item Buffer (1:1 input:output voltage)
+          \item Inverting/noninverting amplifiers
+        \end{itemize}
+        \item Or with positive feedback:
+        \begin{itemize}
+          \item Schmitt trigger (comparartor with hysteresis)
+          \item Oscillators
+        \end{itemize}
+      \end{itemize}
+      }
+      \only<2>{
+      \begin{itemize}
+        \item Op-amps are commonly used in analog circuits and for signal processing
+        \item A detailed description is outside the scope of this lecture
+        \begin{itemize}
+          \item being a significant chunk of EE40, covering several lectures
+        \end{itemize}
+        \item But at least you know they exist, and what they can be used for
+      \end{itemize}
+      }
+    \end{column}
 
-\begin{theorem}
-  In a right triangle, the square of hypotenuse equals
-  the sum of squares of two other sides.
-\end{theorem}
+    \begin{column}{0.4\textwidth}
+      !!TODO:Common symbol for opamps
+      !!TODO:Example opamp amplifier
+    \end{column}
+  \end{columns}
+\end{frame}
 
+\subsection{Power Systems}
+\begin{frame}{Power Systems}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Circuits are useless without power
+        \begin{itemize}
+          \item Often need a battery or connector to a power brick
+        \end{itemize}
+        \item Most circuits need well-regulated DC power, providing stable voltage
+        \begin{itemize}
+          \item Bad quality power supplies may be instable as power load varies
+          \item Battery voltage drops as depleted
+          \item Some supplies are AC
+        \end{itemize}        
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: common source schematic symbols: VDC, VAC, BAT
+      !!TODO: DC and AC waveforms
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Rectifiers}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Rectifiers convert AC to DC
+        \item Diodes prevent reverse voltage
+        \begin{itemize}
+          \item Simple, but is only a half-wave rectifier (negative voltage suppressed)
+          \item Incurs one diode voltage drop
+        \end{itemize}
+        \item Bridge rectifiers 
+        \begin{itemize}
+          \item Rectifies input positive and negative voltages
+          \item But uses 4 diodes, and incurs two diode voltage drops
+        \end{itemize}        
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \only<1>{
+      !!TODO: halfwave rectifier with waves
+      }
+      \only<2>{
+      !!TODO: fullwave rectifier with waves
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Linear regulators}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Linear regulators use active feedback to maintain a constant voltage on the output
+        \begin{itemize}
+          \item Internally, it's a self-adjusting resistive divider
+        \end{itemize}
+        \item Intuitively, power from the "excess" voltage is burned as heat
+        \begin{itemize}
+          \item Which is quite inefficient...
+          \item Can get quite hot when handling a lot of power!
+        \end{itemize}        
+        \item Often a single chip - simple to use
+        \item Provides fairly stable output power
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: Linear regulator application circuit
+      !!TODO: TO220 drawing, 7805 pinout
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Switching regulators}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Switching regulators use storage elements (inductors, capacitors) to regulate output voltage
+        \begin{itemize}
+          \item Power is not intentionally burned
+          \item But there are losses (as heat) from nonidealities (resistance)
+        \end{itemize}
+        \item Buck converters step down an input voltage using inductors
+        \item Boost converters step up an input voltage using inductors
+        \item Switched-capacitor regulators use a flying capacitor
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: Buck, boost circuits
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Theory example: boost converters}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item {\em Background}: Inductors
+        \begin{itemize}
+          \item Resist changes in current by adjusting voltage
+        \end{itemize}
+        \item When switch is closed:
+        \begin{itemize}
+          \item Inductor charges from the supply, increasing current through it
+          \item Diode prevents backflow
+        \end{itemize}
+        \item When switch is open:
+        \begin{itemize}
+          \item Only path for inductor current is through the diode
+          \item Inductor voltage increases to maintain constant current flow
+        \end{itemize}
+        \item Output voltage depends on switching duty cycle
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: Boost diagram
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Practical regulators}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Most regulators supplied as chips
+        \item Adjustable-output versions available
+        \begin{itemize}
+          \item Regulate to keep feedback pin at constant voltage
+          \item Use voltage divider from output to specify setpoint
+          \item Internally, it's black magic (or EE120, take your pick)
+        \end{itemize}
+        \item Switching regulators have varyign degrees of integration
+        \begin{itemize}
+          \item Switch may be internal
+          \item Or even internal chip-scale inductor
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: Toy boost regulator IC with integrated switch and adjustabout output
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Various ICs}
+\begin{frame}{ICs: Integrated Circuits}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item All kinds of specialized devices are available as integrated circuits:
+        \item Logic
+        \begin{itemize}
+          \item Logic gates and level shifters
+        \end{itemize}
+        \item Sensors
+        \begin{itemize}
+          \item Illuminance sensors
+          \item Temperature sensors
+          \item Accelerometers, gyroscopes
+        \end{itemize}
+        \item Radio-frequency transceivers
+        \item ASICs
+        \begin{itemize}
+          \item Bitcoin miners that never ship ...
+        \end{itemize}
+        \item And many, many more
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: Digikey catalog, or that funny dogecoin picture
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Electrical Design Principles}
+\begin{frame}{Introduction}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Good design practices help prevent common mistakes
+        \item Learn from others' failures, so you don't need to repeat them!
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: fail pics
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Understanding circuits}
+\begin{frame}{Understanding circuits}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Designing circuits often involves copying and modifying a supplied reference circuit
+        \item Make sure you understand it!
+        \begin{itemize}
+          \item (within reason, of course)
+          \item Otherwise, you may make lulzworthy mistakes...
+        \end{itemize}
+      \end{itemize}
+      \begin{tcolorbox}[]
+      if you remember nothing else: \newline
+      ALWAYS UNDERSTAND WHAT YOU'RE DESIGNING!
+      \end{tcolorbox}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: algebra hangman
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Maximum ratings}
+\begin{frame}{Maximum ratings}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Most components have maximum ratings: follow them!
+        \item Maximum voltage/current ratings
+        \item Operating/storage temperatures
+        \begin{itemize}
+          \item before permanent damage, either obvious or latent
+        \end{itemize}
+        \item Maximum frequency ratings
+        \begin{itemize}
+          \item before outputs are incorrect
+        \end{itemize}
+        \item Parts must {\em always} be within spec
+        \begin{itemize}
+          \item consider boundary conditions, like circuit start-up and shut-down
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: magic smoke pictures, datasheet maximum ratings pictures
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Robust design}
+\begin{frame}{Idiot-proofing}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Idiot-proofing is general good engineering practice
+        \begin{itemize}
+          \item Not because we're idiots
+          \item But not everone's had their morning coffee
+          \item Or more relevantly, sleep
+        \end{itemize}
+        \item Electrical idiot-proofing
+        \begin{itemize}
+          \item Different connectors
+          \item Polarized connectors, preventing reversed insertion
+          \item Labeling boards for debugging
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: different connectors
+      !!TODO: tritium mangled connector, "they just make better idiots"
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Protection}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Prevent malfunctions from becoming catastrophies
+        \item Fuses / circuit breakers
+        \begin{itemize}
+          \item Prevent excessive overcurrent by breaking the circuit
+        \end{itemize}
+        \item Self-resetting fuses
+        \begin{itemize}
+          \item Use temperature rise from overcurrent to (nonlinearly) increase resistance
+          \item As current drops, temperature decreases and fuse "resets"
+          \item Good to have on power inputs
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: protection circuits: fuses, PPTC self reset fuse
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Protection}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Minimize damage from misuse
+        \item ESD / TVS Suppression
+        \begin{itemize}
+          \item ESD: Electrostatic Discharge, typically on order of kilovolts (enough to destroy modern ICs)
+          \item Causes: static accumulates on people and machines
+          \item Fast-acting diodes dump excess voltage to ground
+          \item Good to have on connectors
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: protection circuits: ESD diodes, warning
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Standardization}
+\begin{frame}{Standardization}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Use standard parts
+        \begin{itemize}
+          \item Reduce inventory overhead
+          \item Buy in bulk
+        \end{itemize}
+        \item Common packages for components
+        \begin{itemize}
+          \item Through-hole: various axial sizes (1/4 watt, ...)
+          \item Surface-mount: various sizes (0402, 0603, 0805, ...)
+        \end{itemize}
+        \item Common values for components
+        \begin{itemize}
+          \item E series of preferred numbers
+          \item E6 series: 10, 15, 22, 33, 47, 68
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: SMT chips, resistors
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Design for Test}
+% to be written
+
+\section{PCB Design}
+\begin{frame}{Introduction: circuit technologies}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Common ways to realize circuits:
+      \begin{itemize}
+        \item Breadboard
+        \begin{itemize}
+          \item For early prototyping
+          \item Literally, plug and play
+          \item Not stable or for production use
+        \end{itemize}
+        \item Protoboard
+        \begin{itemize}
+          \item Parts soldered onto grid of holes - more permanent than breadboard
+          \item Time consuming to assemble
+          \item Not suitable for small, surface-mount parts
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: breadboard, protoboard
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{PCB overview}
+\begin{frame}{PCBs}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      PCB: Printed Circuit Board
+      \begin{itemize}
+        \item Is a substrate (typically fiberglass, FR-4) with layers of copper etched into tracks and pads
+        \begin{itemize}
+          \item Most have top and bottom copper layers, to which parts can be attached
+          \item Complicated designs have internal copper layers
+          \item Plated holes (vias) connect layers
+          \item Silkscreen for labels and art
+        \end{itemize}
+        \item Used for mass-production
+        \item So, how do we design one?
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: PCB stackup
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Schematic capture}
+\begin{frame}{Schematic Capture}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Schematic capture
+      \begin{itemize}
+        \item Is entering a circuit schematic into the computer
+        \begin{itemize}
+          \item Manipulate symbols (abstract representations of components) around a schematic
+          \item Connect pins to make a circuit
+          \item Modern tools {\em typically} intuitive
+        \end{itemize}
+        \item is NOT a physical layout
+        \begin{itemize}
+          \item Design for readability: create modular and neat schematics
+          \item Can have implicit wires, like voltage rails and tunnels
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example schemaitc, symbol
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Board layout}
+\begin{frame}{Board layout}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Board layout
+      \begin{itemize}
+        \item Is doing the physical layout
+        \begin{itemize}
+          \item Tools automatically convert schematic representation to physical representation
+          \item Position component footprints
+          \item Then route traces (wires) between pins
+        \end{itemize}
+        \item Footprints are the board "artwork" for each component
+        \begin{itemize}
+          \item Including copper pads/holes which component leads/pins are soldered to
+          \item and silkscreen labels/outlines
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example layout, footprint with physical package
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Constraints}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Have to meet design rules, dictated by fab capability:
+        \begin{itemize}
+          \item Minimum trace width/spacing
+          \item Minimum/maximum hole size
+          \item ... and more
+          \item Tools can check for these
+        \end{itemize}
+        \item ... along with other constraints:
+        \begin{itemize}
+          \item Signal integrity, especially for high-speed signals
+          \item Trace resistances
+          \item interference
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example layout
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Good practices}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Good layout practices:
+        \begin{itemize}
+          \item Plan ahead: placement determines routing difficulty
+          \item Don't design for minimums unless necessary
+          \item Avoid overlapping components
+          \item Ensure board is easy to assemble
+        \end{itemize}
+        \item Generally, part science, {\em part art}:
+        \begin{itemize}
+          \item Align parts to a grid
+          \item Use patterns where appropriate
+          \item Conventionally, traces routed at 45 degree angles
+          \item Make it pretty!
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example layout with duck
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Fabrication}
+\begin{frame}{Fabrication}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Tools export board design as Gerber files (RS-274X)
+        \begin{itemize}
+          \item ... no, not the baby food ...
+          \item RS-274X is a standard for artwork for board layers (board shape, copper, silkscreen, ...)
+          \item Uniersally accepted by board fabrication houses
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: gerbv
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Fabrication}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Send design files to board house, pay costs, and wait
+        \begin{itemize}
+          \item Prototyping costs (small runs): typically \$2.50 - \$5.00 per sq.in for two copper layers
+          \item Mass production costs: cheap!
+          \item Most of fab cost is start-up costs, per-design rather than per-board
+        \end{itemize}
+        \item Boards mailed in about a week
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: oshpark screenshot
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{}
+\begin{frame}{Live demo (time permitting)}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Break!}
+Ask questions, or just sit back and chillax!
+!!TODO: snorlax and TPP reference
+\end{frame}
+
+\section{Microcontrollers}
+\begin{frame}{Introduction}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Microcontrollers
+      \begin{itemize}
+        \item Are chips with a processor core, memory, and input/output peripherals
+        \begin{itemize}
+          \item Essentially a complete (but simple) computer on a chip
+        \end{itemize}
+        \item Boards mailed in about a week
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: uC chips and silicon
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{SoC architecture}
+
+\subsection{IOs and peripherals}
+
+\section{Programming}
+\subsection{C-style languages}
+
+\subsection{Running time}
+
+\subsection{Memory}
+
+\subsection{Event Detection}
+
+\subsection{}
+\begin{frame}{Live demo (time permitting)}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{The end!}
+Questions?
+!!TODO: duckling picture
 \end{frame}
 
 \end{document}
