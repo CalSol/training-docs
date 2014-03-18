@@ -858,13 +858,191 @@ Ask questions, or just sit back and chillax!
 \end{frame}
 
 \section{Programming}
-\subsection{C-style languages}
+\subsection{The C language}
+\begin{frame}{The C language}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Most microcontrollers programmed in the C-language, which is:
+      \begin{itemize}
+        \item Imperative: statements executed in program order
+        \item Procedural: code can be put into functions, which can be called
+        \item Structured: block control structures
+      \end{itemize}
+      (no, you don't need to memorize this, but it helps to know the big ideas)
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example code
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{C variables and functions}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Variables:
+      \begin{itemize}
+        \item Hold some type of data
+        \item In C, have to be defined before use
+        \item Can be assigned a new value
+      \end{itemize}
+      Functions:
+      \begin{itemize}
+        \item Have a signature: the types they take in (arguments) and return
+        \item Contain some code, which may modify global state
+        \item Can be called from other code
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example code, variable definition and functions
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{C conditional structures}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      If:
+      \begin{itemize}
+        \item If executes code in a block if the condition evaluates true
+        \item Can also have 'else if' block to test additional conditions if the previous are false
+        \item And an 'else' block should none of the previous be true
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example code, if block else if
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{C loop structures}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Loops:
+      \begin{itemize}
+        \item Various loop constructs exist which executes code blocks multiple times
+      \end{itemize}  
+      For loops:
+      \begin{itemize}
+        \item Possibly the most common loop
+        \item Contains:
+        \begin{itemize}
+          \item Initializer: executed once at start
+          \item Condition: loop repeats if true
+          \item Increment: executed at end of each loop
+        \end{itemize}
+      \end{itemize}
+      Do-while loops:      
+      \begin{itemize}
+        \item Repeats as long as condition true
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example code, for loop
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \subsection{Constraints}
+\begin{frame}{Running time and memory bounds}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      should a (quick) section on running time and memory constraints be included?
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO:??????????
+      Profit!
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \subsection{Peripheral}
+\begin{frame}{Using peripherals: functional abstraction}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Code to interact with microcontroller peripherals is usually supplied by the chip vendor as a library
+        \begin{itemize}
+          \item Documentation (of varying quality) is also provided, describing usage
+        \end{itemize}
+        \item Code is supplied as functions that perform some action when called:
+        \begin{itemize}
+          \item Set a GPIO output
+          \item Return a quantized ADC value
+          \item Shift a word out of a digital communications peripheral
+        \end{itemize}        
+      \end{itemize}
+    \end{column}
 
-\subsection{Event Detection}
+    \begin{column}{0.4\textwidth}
+      !!TODO: example GPIO code
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Event detection}
+\begin{frame}{Event detection}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      May want to respond to external events \newline
+      Two main methods:
+      \begin{itemize}
+        \item Polling
+        \item Asynchronous IO
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example GPIO code
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Polling}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Polling:
+      \begin{itemize}
+        \item Repeatedly checks if condition true
+        \item Do something if true, nothing if not
+        \item Pros: simple to write
+        \item Cons: wasted processing time repeatedly checking for condition (high overhead)
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example polling code to wait for switch
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Asynchronous IO}
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      Asynchronous IO:
+      \begin{itemize}
+        \item Instead of repeatedly checking, notify on event
+        \item Interrupt: jump to code block on event, needs hardware support
+        \begin{itemize}
+          \item Typical mechanism for hardware events on microcontrollers
+          \item But tricky to get right
+        \end{itemize}
+        \item Callback: call a specified function when an event happens
+        \begin{itemize}
+          \item Typically a wrapper around an interrupt for microcontrollers
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      !!TODO: example async code to wait for switch
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \subsection{}
 \begin{frame}{Live demo (time permitting)}
