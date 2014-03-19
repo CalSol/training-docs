@@ -26,6 +26,21 @@
 \hfill\usebeamertemplate***{navigation symbols}
 \hspace{1cm}\insertframenumber{}/\inserttotalframenumber}
 
+\lstset{
+frame=leftline,
+breakatwhitespace=true,
+language=C++,
+columns=fullflexible,
+keepspaces=true,
+breaklines=true,
+tabsize=2, 
+showstringspaces=false,
+extendedchars=true,
+keywordstyle=\color{blue}\ttfamily,
+stringstyle=\color{red}\ttfamily,
+commentstyle=\color{green}\ttfamily
+}
+
 \begin{document}
 % -------- -------- -------- -------- --------
 \begin{frame}[plain] \centering
@@ -57,7 +72,11 @@
       \item Or mechanisms in mechanical engineering
     \end{itemize}
   \end{itemize}
-  !!TODO:add circuit block pictures here
+  \centering
+  \includegraphics[scale=0.25]{../images/circuit-blocks/led_vert_io}
+  \includegraphics[scale=0.25]{../images/circuit-blocks/pullup_switch}
+  \includegraphics[scale=0.25]{../images/circuit-blocks/opamp_noninvertingamp}
+  \includegraphics[scale=0.25]{../images/circuit-blocks/smps_boost_ic}
 \end{frame}
 
 \subsection{LED circuit}
@@ -937,9 +956,9 @@
 
 \section{Programming}
 \subsection{The C language}
-\begin{frame}{The C language}
+\begin{frame}[fragile]{The C language}
   \begin{columns}[T]
-    \begin{column}{.6\textwidth}
+    \begin{column}{0.6\textwidth}
       Most microcontrollers programmed in the C-language, which is:
       \begin{itemize}
         \item Imperative: statements executed in program order
@@ -949,13 +968,21 @@
       (no, you don't need to memorize this, but it helps to know the big ideas)
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: example code
+    \begin{column}{0.4\textwidth} \centering
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+void main() {
+  int a_var = 1;
+  int another_var = 2;
+  a_var = a_var + 3;
+  a_var = a_var * another_var;
+  // a_var is now 8
+} \end{lstlisting} 
+Example C program
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{C variables and functions}
+\begin{frame}[fragile]{C variables and functions}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       Variables:
@@ -972,13 +999,23 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: example code, variable definition and functions
+    \begin{column}{0.4\textwidth} \centering
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+int double(int in) {
+  return in * 2;
+}
+
+void main() {
+  int a_var = 21;
+  a_var = double(a_var);
+  // a_var is now 42
+} \end{lstlisting} 
+Example code showing the use of functions
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{C conditional structures}
+\begin{frame}[fragile]{C conditional structures}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       If:
@@ -990,12 +1027,29 @@
     \end{column}
 
     \begin{column}{0.4\textwidth}
-      !!TODO: example code, if block else if
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+int abs(int in) {
+  if (in < 0) {
+    return -in;
+  } else {
+    return in
+  }
+  return in * 2;
+}
+
+void main() {
+  int a_var = -21;
+  a_var = abs(a_var);
+  // a_var is now 21
+  a_var = abs(a_var);
+  // a_var is still 21
+} \end{lstlisting} 
+Example code showing the use of the if block
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{C loop structures}
+\begin{frame}[fragile]{C loop structures}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       Loops:
@@ -1012,14 +1066,22 @@
           \item Increment: executed at end of each loop
         \end{itemize}
       \end{itemize}
-      Do-while loops:      
+      While/do-while loops:      
       \begin{itemize}
         \item Repeats as long as condition true
       \end{itemize}
     \end{column}
 
     \begin{column}{0.4\textwidth}
-      !!TODO: example code, for loop
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+void main() {
+  int a_var = 0;
+  for (int i=0; i<10; i++) {
+    a_var += 2;
+  }
+  // a_var is now 20
+} \end{lstlisting} 
+A very inefficient multiplication implementation
     \end{column}
   \end{columns}
 \end{frame}
@@ -1027,7 +1089,7 @@
 % TODO: add a section on running time and memory constraints, maybe
 
 \subsection{Peripheral}
-\begin{frame}{Using peripherals: functional abstraction}
+\begin{frame}[fragile]{Using peripherals: functional abstraction}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       \begin{itemize}
@@ -1045,12 +1107,21 @@
     \end{column}
 
     \begin{column}{0.4\textwidth}
-      !!TODO: example GPIO code
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+int led_io = 0;
+int btn_io = 2;
+
+void main() {
+  int btn_state;
+  btn_state = digitalRead(btn_pin);
+  digitalWrite(led_io, btn_state);
+} \end{lstlisting} 
+Example code writing button input to the the LED output
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Polling}
+\begin{frame}[fragile]{Polling}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       Often, need to react to events \newline
@@ -1065,12 +1136,23 @@
     \end{column}
 
     \begin{column}{0.4\textwidth}
-      !!TODO: example polling code to wait for switch
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+int led_io = 0;
+int btn_io = 2;
+  
+void main() {
+  while (true) {
+    if (digitalRead(btn_pin)) {
+      digitalWrite(led_io, HIGH);
+    }
+  }
+} \end{lstlisting} 
+Using polling to detect a button press
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Asynchronous IO}
+\begin{frame}[fragile]{Asynchronous IO}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       Asynchronous IO:
@@ -1089,7 +1171,19 @@
     \end{column}
 
     \begin{column}{0.4\textwidth}
-      !!TODO: example async code to wait for switch
+\begin{lstlisting}[tabsize=2,basicstyle=\ttfamily\scriptsize]
+int led_io = 0;
+int btn_io = 2;
+
+void press_action() {
+  digitalWrite(led_io, HIGH);
+}
+
+void main() {
+  onPress(btn_io, &press_action);
+  while (true) {}
+} \end{lstlisting}
+Using callbacks (with a magical onPress function) to detect a button press
     \end{column}
   \end{columns}
 \end{frame}
