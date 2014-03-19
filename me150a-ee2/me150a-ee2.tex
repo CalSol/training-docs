@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage{etoolbox}
 \usepackage{tcolorbox}
+\usepackage{listings}
 
 \usetheme{Warsaw}
 
@@ -292,8 +293,12 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: Buck, boost circuits
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/smps_buck} \\
+      Buck converter \\
+      ~ \\
+      \includegraphics[scale=0.5]{../images/circuit-blocks/smps_boost} \\
+      Boost converter
     \end{column}
   \end{columns}
 \end{frame}
@@ -320,8 +325,14 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: Boost diagram
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/smps_boost_cycle_closed2} \\
+      Switch closed \\
+      {\tiny Inductor charging} \\
+      ~ \\
+      \includegraphics[scale=0.5]{../images/circuit-blocks/smps_boost_cycle_open2} \\
+      Switch open \\
+      {\tiny Inductor discharging}
     \end{column}
   \end{columns}
 \end{frame}
@@ -345,8 +356,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: Toy boost regulator IC with integrated switch and adjustabout output
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/smps_boost_ic} \\
+      Example variable-output boost converter circuit controlled by a chip
     \end{column}
   \end{columns}
 \end{frame}
@@ -522,8 +534,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: protection circuits: ESD diodes, warning
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/esd_digikey_06722} \\
+      ESD is a serious problem
     \end{column}
   \end{columns}
 \end{frame}
@@ -808,7 +821,7 @@
 \subsection{IOs and peripherals}
 \begin{frame}{Overview}
   \begin{columns}[T]
-    \begin{column}{.6\textwidth}
+    \begin{column}{.6\textwidth}eamfs
       IOs and peripherals
       \begin{itemize}
         \item Are how microcontrollers interact with the world around them
