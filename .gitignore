@@ -21,3 +21,6 @@ Thumbs.db
 *.out
 *.snm
 *.toc
+
+# images from the Internet
+images/external/*
