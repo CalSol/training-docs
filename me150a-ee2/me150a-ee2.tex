@@ -27,8 +27,18 @@
 
 \begin{document}
 % -------- -------- -------- -------- --------
-\begin{frame}[plain]
+\begin{frame}[plain] \centering
   \titlepage
+  \begin{center} 
+  \includegraphics[scale=0.5]{../images/external/ccbysa} \\
+  \tiny This work is licensed under a Creative Commons \\
+  Attribution-ShareAlike 3.0 International License \\
+  ~ \\
+  Source available on GitHub: \\
+  \texttt{https://github.com/CalSol/training-docs/} \\
+  ~ \\
+  Photos from various Internet sources
+   \end{center}
 \end{frame}
 
 \section{Common Circuits Blocks}
@@ -62,8 +72,16 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO:LED circuit
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/led_vert_io} \\
+      LED circuit \\
+      ~ \\
+      Use $R=\frac{V_s-V_f}{I_{LED}}$ \\
+      {\tiny
+        $V_s$ supply voltage \\
+        $V_f$ LED voltage drop \\
+        $I_{LED}$ LED current \\
+      }
     \end{column}
   \end{columns}
 \end{frame}
@@ -80,9 +98,12 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO:Pull-up circuit
-      !!TODO:Pull-down circuit
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/pullup_vert_io} \\
+      Pull-up circuit \\
+      ~ \\
+      \includegraphics[scale=0.5]{../images/circuit-blocks/pulldown_vert_io} \\
+      Pull-down circuit
     \end{column}
   \end{columns}
 \end{frame}
@@ -109,15 +130,10 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      \only<1>{
-      !!TODO:Pull-up switch (open)
-      !!TODO:Pull-up switch (closed)
-      }
-      \only<2>{
-      !!TODO:Voltage translation (on)
-      !!TODO:Voltage translation (off)
-      }
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/pullup_switch_open}
+      \includegraphics[scale=0.5]{../images/circuit-blocks/pullup_switch_closed} \\
+      Pull-up circuit with switch
     \end{column}
   \end{columns}
 \end{frame}
@@ -156,9 +172,11 @@
       }
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO:Common symbol for opamps
-      !!TODO:Example opamp amplifier
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/symbols/opamp_labeled} \\
+      \includegraphics[scale=0.5]{../images/circuit-blocks/opamp_noninvertingamp} \\
+      Non-inverting amplifier \\
+      $V_{out}=V_{in}(1+\frac{R_f}{R_g})$
     \end{column}
   \end{columns}
 \end{frame}
@@ -181,9 +199,12 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: common source schematic symbols: VDC, VAC, BAT
-      !!TODO: DC and AC waveforms
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/symbols/sourcedc_labeled}
+      \includegraphics[scale=0.5]{../images/symbols/sourceac_labeled} \\
+      DC and AC voltage sources \\
+      \includegraphics[scale=0.5]{../images/symbols/battery_labeled} \\
+      Battery
     \end{column}
   \end{columns}
 \end{frame}
@@ -206,7 +227,7 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
+    \begin{column}{0.4\textwidth} \centering
       \only<1>{
       !!TODO: halfwave rectifier with waves
       }
@@ -235,9 +256,11 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: Linear regulator application circuit
-      !!TODO: TO220 drawing, 7805 pinout
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/circuit-blocks/7805} \\
+      Linear regulator circuit with LM7805\\
+      ~ \\
+      \includegraphics[scale=0.5]{../images/physical/7805_to220_labeled} \\
     \end{column}
   \end{columns}
 \end{frame}
@@ -341,8 +364,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: Digikey catalog, or that funny dogecoin picture
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/dogecoin_reddit_frame_wp0UDqp} \\
+      Yes, there are dedicated chips for this
     \end{column}
   \end{columns}
 \end{frame}
@@ -357,8 +381,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: fail pics
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/laptopfire_engadget_dell-laptop-fire-new-1} \\
+      "oops!"
     \end{column}
   \end{columns}
 \end{frame}
@@ -375,14 +400,15 @@
           \item Otherwise, you may make lulzworthy mistakes...
         \end{itemize}
       \end{itemize}
-      \begin{tcolorbox}[]
-      if you remember nothing else: \newline
+      \begin{tcolorbox}[] \centering
+      \underline{if you remember nothing else:} \\
       ALWAYS UNDERSTAND WHAT YOU'RE DESIGNING!
       \end{tcolorbox}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: algebra hangman
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.25]{../images/external/hangman_thisbluemarble} \\
+      Don't let this happen to you!
     \end{column}
   \end{columns}
 \end{frame}
@@ -409,8 +435,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: magic smoke pictures, datasheet maximum ratings pictures
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.2]{../images/external/LM7805_absolutemaxratings} \\
+      Absolute maximum ratings for LM7805
     \end{column}
   \end{columns}
 \end{frame}
@@ -435,9 +462,10 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: different connectors
-      !!TODO: tritium mangled connector, "they just make better idiots"
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/tritium_calsol} \\
+      "they just make better idiots" \\
+      {\tiny A CalSol true story}
     \end{column}
   \end{columns}
 \end{frame}
@@ -460,8 +488,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: protection circuits: fuses, PPTC self reset fuse
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/polyfuse_wikipedia_publicdomain_800px-Photo-Polyswitch} \\
+      Self-resetting fuses \\
     \end{column}
   \end{columns}
 \end{frame}
@@ -510,8 +539,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: SMT chips, resistors
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/smd_wikipedia_publicdomain_Photo-SMDcapacitors} \\
+      Various components in various standardized sizes
     \end{column}
   \end{columns}
 \end{frame}
@@ -540,8 +570,10 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: breadboard, protoboard
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/external/breadboarclear_mouser_BPS-IMG-BB400T} \\
+      \includegraphics[scale=0.15]{../images/breadboard/internals} \\
+      Breadboard and internal connections
     \end{column}
   \end{columns}
 \end{frame}
@@ -564,8 +596,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: PCB stackup
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/pcb/stackup} \\
+      PCB stackup
     \end{column}
   \end{columns}
 \end{frame}
@@ -590,8 +623,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: example schemaitc, symbol
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/diptrace/555_schematic} \\
+      Schematic capture tool
     \end{column}
   \end{columns}
 \end{frame}
@@ -616,8 +650,11 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: example layout, footprint with physical package
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.5]{../images/physical/555_dip8_labeled} \\
+      \includegraphics[scale=0.4]{../images/physical/footprint_dip8}
+      \includegraphics[scale=0.4]{../images/physical/footprint_dip8_populated} \\
+      Chip, footprint, and board
     \end{column}
   \end{columns}
 \end{frame}
@@ -642,8 +679,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: example layout
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/diptrace/555_layout} \\
+      Board layout tool
     \end{column}
   \end{columns}
 \end{frame}
@@ -669,8 +707,10 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: example layout with duck
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/diptrace/555_layout} \\
+      Board layout tool
+      %TODO: more descriptive image here
     \end{column}
   \end{columns}
 \end{frame}
@@ -689,8 +729,9 @@
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: gerbv
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=0.9\columnwidth]{../images/diptrace/555_gerbv} \\
+      Gerber files
     \end{column}
   \end{columns}
 \end{frame}
@@ -710,7 +751,8 @@
     \end{column}
 
     \begin{column}{0.4\textwidth}
-      !!TODO: oshpark screenshot
+      \includegraphics[width=0.9\columnwidth]{../images/diptrace/dcdc_oshpark} \\
+      Design being submitted at OSHPark
     \end{column}
   \end{columns}
 \end{frame}
@@ -720,9 +762,11 @@
 \end{frame}
 
 \begin{frame}[plain]
-\frametitle{Break!}
-Ask questions, or just sit back and chillax!
-!!TODO: snorlax and TPP reference
+\frametitle{Break!} \centering
+  Ask questions, or just sit back and chillax! \\
+  ~ \\
+  ~ \\
+  \includegraphics[width=0.75\columnwidth]{../images/external/snorlax_bulbapedia_143Snorlax_OS_anime_2} 
 \end{frame}
 
 \section{Microcontrollers}
@@ -742,8 +786,9 @@ Ask questions, or just sit back and chillax!
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: uC chips and silicon
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=.9\columnwidth]{../images/external/mcu_wikipedia_publicdomain_PIC18F8720} \\
+      An entire computer on a chip
     \end{column}
   \end{columns}
 \end{frame}
@@ -769,8 +814,9 @@ Ask questions, or just sit back and chillax!
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: architecture block diagram
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[width=.9\columnwidth]{../images/external/mcublockdiagram_microchip_pic18f_39609b} \\
+      Microcontroller block diagram
     \end{column}
   \end{columns}
 \end{frame}
@@ -824,8 +870,12 @@ Ask questions, or just sit back and chillax!
       \end{itemize}
     \end{column}
 
-    \begin{column}{0.4\textwidth}
-      !!TODO: waveforms
+    \begin{column}{0.4\textwidth} \centering
+      \includegraphics[scale=0.33]{../images/circuit-blocks/uart} \\
+      Example UART hookup \\
+      ~ \\
+      \includegraphics[scale=0.25]{../images/circuit-blocks/i2c} \\
+      Example I2C hookup
     \end{column}
   \end{columns}
 \end{frame}
@@ -946,19 +996,7 @@ Ask questions, or just sit back and chillax!
   \end{columns}
 \end{frame}
 
-\subsection{Constraints}
-\begin{frame}{Running time and memory bounds}
-  \begin{columns}[T]
-    \begin{column}{.6\textwidth}
-      should a (quick) section on running time and memory constraints be included?
-    \end{column}
-
-    \begin{column}{0.4\textwidth}
-      !!TODO:??????????
-      Profit!
-    \end{column}
-  \end{columns}
-\end{frame}
+% TODO: add a section on running time and memory constraints, maybe
 
 \subsection{Peripheral}
 \begin{frame}{Using peripherals: functional abstraction}
@@ -984,27 +1022,11 @@ Ask questions, or just sit back and chillax!
   \end{columns}
 \end{frame}
 
-\subsection{Event detection}
-\begin{frame}{Event detection}
-  \begin{columns}[T]
-    \begin{column}{.6\textwidth}
-      May want to respond to external events \newline
-      Two main methods:
-      \begin{itemize}
-        \item Polling
-        \item Asynchronous IO
-      \end{itemize}
-    \end{column}
-
-    \begin{column}{0.4\textwidth}
-      !!TODO: example GPIO code
-    \end{column}
-  \end{columns}
-\end{frame}
-
 \begin{frame}{Polling}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
+      Often, need to react to events \newline
+      \newline
       Polling:
       \begin{itemize}
         \item Repeatedly checks if condition true
@@ -1049,9 +1071,11 @@ Ask questions, or just sit back and chillax!
 \end{frame}
 
 \begin{frame}[plain]
-\frametitle{The end!}
-Questions?
-!!TODO: duckling picture
+\frametitle{The end!} \centering
+  Questions? \\
+  ~ \\
+  ~ \\
+  \includegraphics[width=.75\columnwidth]{../images/external/800px-Ducks_Yerevan}
 \end{frame}
 
 \end{document}
